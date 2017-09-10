@@ -1,21 +1,35 @@
+* {
+	box-sizing: border-box;
+}
 body {
 	font-family: 'Source Sans Pro', sans-serif;
 	margin: 0;
-	background: #000; 
+	background: #e6e6e6; 
 	color: #FFF;
-	box-sizing: border-box;
 }
-h1,h2,h3,h4,h5,h6 {
+h1 {
 	font-family: 'Archivo Black', sans-serif;
 }
+h2,h3,h4,h5,h6 {
+	font-family: 'Roboto', sans-serif;
+}
 header {
-	position: fixed;
 	width: 100%;
-	background: rgba(0,0,0,0.8);
+	height: 50px;
+	background: rgb(26,26,26);
 	z-index: 1;
+	position: sticky;
+	top: 0;
+}
+/* If position: sticky isn't supported, polyfill it */;
+header.stuck {
+	position: fixed;
+	top: 0;
 }
 header nav ul {
 	display: flex;
+	margin: 0;
+	padding: 0;
 }
 header nav ul li {
 	list-style: none;
@@ -27,14 +41,19 @@ header nav ul li a {
 	color: #FFF;
 	text-transform: uppercase;
 	text-decoration: none;
+	font-family: 'Montserrat', sans-serif;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	line-height: 50px;
 }
 .splash {
-	height: 100%;
-	height: 100vh;
+	height: 95%;
+	height: calc(100vh - 50px);
 	width: 100%;
 	width: 100vw;
 	overflow: hidden;
 	position: relative;
+	background: none;
+	padding: 0;
 }
 
 .splash video { 
@@ -47,7 +66,7 @@ header nav ul li a {
     height: auto;
     z-index: -100;
     transform: translateX(-50%) translateY(-50%);
-	background: url('./background-poster.png') no-repeat;
+	background: url('../../background-poster.png') no-repeat;
 	background-size: cover;
 	transition: 1s opacity;
 }
@@ -60,11 +79,21 @@ header nav ul li a {
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.splash .social-list {
+	text-align: center;
 }
 section {
 	width: 75%;
-	margin: 0 auto;
+	padding: 10px 12.5%;
+	background: rgb(26,26,26);
+	box-sizing: content-box;
+}
+.portfolio {
+	background: #e6e6e6;
+	color: rgb(26,26,26);
 }
 .portfolio .content {
 	display: flex;
@@ -73,8 +102,83 @@ section {
 
 .portfolio .content * {
 	width: 50%;
+	padding: 10px;
+}
+img.breaker {
+	display: block;
 }
 @media screen and (max-device-width: 800px) {
-  html { background: url(./background-poster.png) #000 no-repeat center center fixed; }
+  html { background: url(../../background-poster.png) #000 no-repeat center center fixed; }
   .splash video { display: none; }
+}
+
+.social-list {
+	padding: 0;
+	margin: 0;
+}
+
+.social-list li {
+	display: inline-block;
+	list-style: none;
+	padding: 14px 7px;
+}
+
+.centred > * {
+	text-align: center;
+	margin: 0 auto;
+}
+
+
+input {
+	color: inherit;
+	font: inherit;
+	margin: 0;
+	line-height: normal;
+	font-family: sans-serif;
+    font-weight: 100;
+    letter-spacing: 0.01em;
+    padding: .5em .6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+button {
+	font: inherit;
+	margin: 0;
+	overflow: visible;
+	text-transform: none;
+	-webkit-appearance: button;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-weight: 100;
+    letter-spacing: 0.01em;
+    line-height: normal;
+    box-sizing: border-box;
+    display: inline-block;
+    zoom: 1;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: inherit;
+    font-size: 100%;
+    padding: .5em 1em;
+    color: #444;
+    color: rgba(0,0,0,.8);
+    border: 1px solid #999;
+    border: transparent;
+    background-color: #E6E6E6;
+    text-decoration: none;
+    border-radius: 2px;
+    background-color: #0078e7;
+    color: #fff;
 }
